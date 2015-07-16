@@ -42,13 +42,13 @@ class MellatBank {
 	
 	
 	/**
-	 * __cunstruct
+	 * __construct
 	 *
 	 * @terminal : bankmellat terminal (int)
 	 * @username : bankmellat username (string)
 	 * @password : bankmellat password (string)
 	 */
-	public function __cunstruct($terminal = '', $username = '', $password = '')
+	public function __construct($terminal = '', $username = '', $password = '')
 	{
 		if(!empty($terminal))
 			$this->terminal = $terminal;
