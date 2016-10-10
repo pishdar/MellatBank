@@ -3,7 +3,7 @@
     "name": "yaim/mellatbank",
     "description": "MellatBank re-packaged for Packagist/Composer",
     "require": {
-   		"fergusean/nusoap": "*"
+   		"codecasts/nusoap-php7": "*"
    	},
     "authors": [
         {
