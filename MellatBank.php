@@ -78,11 +78,9 @@ class MellatBank {
 		$userName = $this->username;
 		$userPassword = $this->password;
 		$orderId = rand(10000,99999);
-		$amount = $amount;
 		$localDate = date('ymj');
 		$localTime = date('His');
 		$additionalData = '';
-		$callBackUrl = $callBackUrl;
 		$payerId = 0;
 		$err = $client->getError();
 		if ($err) {
@@ -115,7 +113,7 @@ class MellatBank {
 				die();
 			} 
 			else {
-				$res = explode (',',$resultStr);
+				$res = explode (',',$resultStr['return']);
 				echo '<div style="display:none;">Pay Response is : ' . $resultStr . '</div>';
 				$ResCode = $res[0];	
 				if ($ResCode == "0") {
@@ -168,7 +166,7 @@ class MellatBank {
 			die();
 		} 
 		else {
-			$resultStr = $result;	
+			$resultStr = $result['return'];
 			$err = $client->getError();
 			if ($err) {
 				echo '<h2>Error</h2><pre>' . $err . '</pre>';
@@ -222,7 +220,7 @@ class MellatBank {
 			die();
 		} 
 		else {
-			$resultStr = $result;	
+			$resultStr = $result['return'];
 			$err = $client->getError();
 			if ($err) {
 				echo '<h2>Error</h2><pre>' . $err . '</pre>';
@@ -246,17 +244,13 @@ class MellatBank {
 	 *
 	 * @param array $params : اطلاعات دریافتی از درگاه پرداخت
 	 *
-	 * @return  void
+	 * @return bool | array
 	 *
 	 * @since   2014-12-10
 	 * @author  Ahmad Rezaei <info@freescript.ir>
 	 */
 	public function checkPayment($params) 
 	{
-		$params["RefId"] = $params["RefId"] ;
-		$params["ResCode"] = $params["ResCode"] ;
-		$params["SaleOrderId"] = $params["SaleOrderId"] ;
-		$params["SaleReferenceId"] = $params["SaleReferenceId"] ;
 		if( $params["ResCode"] == 0 ) 
 		{
 			if( $this->verifyPayment($params) == true ) {
