@@ -303,45 +303,196 @@ class MellatBank {
 	protected function response($number) 
 	{
 		switch($number) {
-			case 31 :
-				$err = "پاسخ نامعتبر است!";	
-				break;
-			case 17 :
-				$err = "کاربر از انجام تراکنش منصرف شده است!";
-				break;
-			case 21 :
-				$err = "پذیرنده نامعتبر است!";
-				break;
-			case 25 :
-				$err = "مبلغ نامعتبر است!";
-				break;
-			case 34 :
-				$err = "خطای سیستمی!";
-				break;
-			case 41 :
-				$err = "شماره درخواست تکراری است!";
-				break;
-			case 421 :
-				$err = "ای پی نامعتبر است!";
-				break;
-			case 412 :
-				$err = "شناسه قبض نادرست است!";
-				break;
-			case 45 :
-				$err = "تراکنش از قبل ستل شده است";
-				break;
-			case 46 :
-				$err = "تراکنش ستل شده است";
-				break;
-			case 35 :
-				$err = "تاریخ نامعتبر است";
-				break;
-			case 32 :
-				$err = "فرمت اطلاعات وارد شده صحیح نمیباشد";
-				break;
-			case 43 :
-				$err = "درخواست verify قبلا صادر شده است";
-				break;
+			case 'settle':
+				$err ='عملیات Settel دستی با موفقیت انجام شد .';
+			break;
+			case '-2':
+			case -2:
+				$err ='شکست در ارتباط با بانک .';
+			break;
+			case '-1':
+			case -1:
+				$err ='شکست در ارتباط با بانک .';
+			break;
+			//case '0':
+				//$err ='تراکنش با موفقیت انجام شد .';
+			//break;
+			case '11':
+			case 11:
+				$err ='شماره کارت معتبر نیست .';
+			break;
+			case '12':
+			case 12:
+				$err ='موجودی کافی نیست .';
+			break;
+			case '13':
+			case 13:
+				$err ='رمز دوم شما صحیح نیست .';
+			break;
+			case '14':
+			case 14:
+				$err ='دفعات مجاز ورود رمز بیش از حد است .';
+			break;
+			case '15':
+			case 15:
+				$err ='کارت معتبر نیست .';
+			break;
+			case '16':
+			case 16:
+				$err ='دفعات برداشت وجه بیش از حد مجاز است .';
+			break;
+			case '17':
+			case 17:
+				$err ='شما از انجام تراکنش منصرف شده اید .';
+			break;
+			case '18':
+			case 18:
+				$err ='تاریخ انقضای کارت گذشته است .';
+			break;
+			case '19':
+			case 19:
+				$err ='مبلغ برداشت وجه بیش از حد مجاز است .';
+			break;
+			case '111':
+			case 111:
+				$err ='صادر کننده کارت نامعتبر است .';
+			break;
+			case '112':
+			case 112:
+				$err ='خطای سوییچ صادر کننده کارت رخ داده است .';
+			break;
+			case '113':
+			case 113:
+				$err ='پاسخی از صادر کننده کارت دریافت نشد .';
+			break;
+			case '114':
+			case 114:
+				$err ='دارنده کارت مجاز به انجام این تراکنش نمی باشد .';
+			break;
+			case '21':
+			case 21:
+				$err ='پذیرنده معتبر نیست .';
+			break;
+			case '23':
+			case 23:
+				$err ='خطای امنیتی رخ داده است .';
+			break;
+			case '24':
+			case 24:
+				$err ='اطلاعات کاربری پذیرنده معتبر نیست .';
+			break;
+			case '25':
+			case 25:
+				$err ='مبلغ نامعتبر است .';
+			break;
+			case '31':
+			case 31:
+				$err ='پاسخ نامعتبر است .';
+			break;
+			case '32':
+			case 32:
+				$err ='فرمت اطلاعات وارد شده صحیح نیست .';
+			break;
+			case '33':
+			case 33:
+				$err ='حساب نامعتبر است .';
+			break;
+			case '34':
+			case 34:
+				$err ='خطای سیستمی رخ داده است .';
+			break;
+			case '35':
+			case 35:
+				$err ='تاریخ نامعتبر است .';
+			break;
+			case '41':
+			case 41:
+				$err ='شماره درخواست تکراری است .';
+			break;
+			case '42':
+			case 42:
+				$err ='همچین تراکنشی وجود ندارد .';
+			break;
+			case '43':
+			case 43:
+				$err ='قبلا درخواست Verify داده شده است';
+			break;
+			case '44':
+			case 44:
+				$err ='درخواست Verify یافت نشد .';
+			break;
+			case '45':
+			case 45:
+				$err ='تراکنش قبلا Settle شده است .';
+			break;
+			case '46':
+			case 46:
+				$err ='تراکنش Settle نشده است .';
+			break;
+			case '47':
+			case 47:
+				$err ='تراکنش Settle یافت نشد .';
+			break;
+			case '48':
+			case 48:
+				$err ='تراکنش قبلا Reverse شده است .';
+			break;
+			case '49':
+			case 49:
+				$err ='تراکنش Refund یافت نشد .';
+			break;
+			case '412':
+			case 412:
+				$err ='شناسه قبض نادرست است .';
+			break;
+			case '413':
+			case 413:
+				$err ='شناسه پرداخت نادرست است .';
+			break;
+			case '414':
+			case 414:
+				$err ='سازمان صادر کننده قبض معتبر نیست .';
+			break;
+			case '415':
+			case 415:
+				$err ='زمان جلسه کاری به پایان رسیده است .';
+			break;
+			case '416':
+			case 416:
+				$err ='خطا در ثبت اطلاعات رخ داده است .';
+			break;
+			case '417':
+			case 417:
+				$err ='شناسه پرداخت کننده نامعتبر است .';
+			break;
+			case '418':
+			case 418:
+				$err ='اشکال در تعریف اطلاعات مشتری رخ داده است .';
+			break;
+			case '419':
+			case 419:
+				$err ='تعداد دفعات ورود اطلاعات بیش از حد مجاز است .';
+			break;
+			case '421':
+			case 421:
+				$err ='IP معتبر نیست .';
+			break;
+			case '51':
+			case 51:
+				$err ='تراکنش تکراری است .';
+			break;
+			case '54':
+			case 54:
+				$err ='تراکنش مرجع موجود نیست .';
+			break;
+			case '55':
+			case 55:
+				$err ='تراکنش نامعتبر است .';
+			break;
+			case '61':
+			case 61:
+				$err ='خطا در واریز رخ داده است .';
+			break;	
 			
 		}
 		return $err ;
